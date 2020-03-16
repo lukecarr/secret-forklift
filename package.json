@@ -20,18 +20,29 @@
       "email": "luke@omniointeractive.com"
     }
   ],
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/omnio-interactive/node-secret-forklift.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "(rm -r ./dist || true)",
+    "lint": "eslint src/**/*.ts test/**/*.ts",
+    "build": "npm run clean && npm run lint && tsc"
   },
   "dependencies": {
     "aws-param-store": "^3.2.0"
   },
   "devDependencies": {
-    "aws-sdk": "^2.640.0"
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "aws-sdk": "^2.640.0",
+    "eslint": "^6.8.0",
+    "typescript": "^3.8.3"
   }
 }
