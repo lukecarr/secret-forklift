@@ -1,7 +1,7 @@
-![Secret Forklift](https://i.imgur.com/jfrPJpQ.png?1)
+<img src="https://i.imgur.com/jfrPJpQ.png?1" alt="Secret Forklift" align="right" />
+
 # Secret Forklift
 
-![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/omnio-interactive/secret-forklift/master)
 ![NPM](https://img.shields.io/npm/v/secret-forklift)
 ![NPM Bundle Size](https://img.shields.io/bundlephobia/min/secret-forklift)
 ![NPM Weekly Downloads](https://img.shields.io/npm/dw/secret-forklift)
