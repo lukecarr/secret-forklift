@@ -1,7 +1,7 @@
 import defaults from './defaults';
 const awsParamStore = require('aws-param-store');
 
-const load = function(options: SecretForkliftOptions) {
+export const load = function(options: SecretForkliftOptions) {
   return new Promise((resolve, reject) => {
     options = Object.assign(defaults, options);
     awsParamStore.getParametersByPath(options.path).then((parameters: any) => {
@@ -14,5 +14,3 @@ const load = function(options: SecretForkliftOptions) {
     }).catch((err: any) => reject(err));
   });
 };
-
-export default load;
