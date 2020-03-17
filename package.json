@@ -27,10 +27,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/omnio-interactive/node-secret-forklift.git"
+    "url": "git+ssh://git@github.com/omnio-interactive/node-secret-forklift.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "lint": "eslint \"src/**\"",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
