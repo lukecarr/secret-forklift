@@ -49,10 +49,10 @@ The `loadSync()` method can also be supplied with options to configure Secret Fo
   
   // This function loads the parameter retrieved from AWS. The default implementation
   // loads parameters into the process.env object which is globally access in Node.
-  loader: function(name, value) {
-    if ((Object.prototype.hasOwnProperty.call(process.env, name) && this.override)
-      || !Object.prototype.hasOwnProperty.call(process.env, name)) {
-      process.env[name] = value;
+  loader: function(parameter) {
+    if ((Object.prototype.hasOwnProperty.call(process.env, parameter.Name) && this.override)
+      || !Object.prototype.hasOwnProperty.call(process.env, parameter.Name)) {
+      process.env[parameter.Name] = parameter.Value;
     }
   }
 }
