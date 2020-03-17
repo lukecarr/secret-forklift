@@ -9,6 +9,10 @@
 
 AWS Parameter Store loader for Node.js. Load secrets, tokens, and application configuration variables from AWS Systems Manager's Parameter Store into your Node.js app!
 
+**It's dead easy to use and you can get started with just one line of code:**
+
+<img src="https://i.imgur.com/3AI2OSr.png" width="640" />
+
 ## Install
 
 ```bash
