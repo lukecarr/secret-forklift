@@ -38,7 +38,7 @@
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "build": "npm run clean && npm run build:types && npm run build:js",
-    "prepare": "npm run build"
+    "prepare": "npm run lint && npm run build"
   },
   "dependencies": {
     "aws-param-store": "^3.2.0"
