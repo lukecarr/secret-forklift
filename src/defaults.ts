@@ -1,10 +1,10 @@
 const defaults : SecretForkliftOptions = {
   path: process.env.AWS_PARAM_STORE_PATH || '',
   override: true,
-  formatter: function(name) {
+  formatter(name){
     return name.replace(/-/g, '_').toUpperCase();
   },
-  loader: function(name, value) {
+  loader(name, value) {
     if (process.env.hasOwnProperty(name) && this.override || !process.env.hasOwnProperty(name)) {
       process.env[name] = value;
     }

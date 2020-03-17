@@ -1,11 +1,9 @@
 import defaults from './defaults';
 const awsParamStore = require('aws-param-store');
 
-const loadDefaults = function(options: SecretForkliftOptions) {
-  return Object.assign(defaults, options);
-}
+const loadDefaults = (options: SecretForkliftOptions) => Object.assign(defaults, options);
 
-const handleParamters = function(options: SecretForkliftOptions, parameters: any) {
+const handleParamters = (options: SecretForkliftOptions, parameters: any) => {
   parameters.forEach((parameter: any) => {
     const name = parameter.Name.split('/');
     const value = parameter.Value;
@@ -13,7 +11,7 @@ const handleParamters = function(options: SecretForkliftOptions, parameters: any
   });
 }
 
-export const load = function(options: SecretForkliftOptions) {
+export const load = (options: SecretForkliftOptions) => {
   return new Promise((resolve, reject) => {
     options = loadDefaults(options);
     awsParamStore.getParametersByPath(options.path).then((parameters: any) => {
@@ -23,7 +21,7 @@ export const load = function(options: SecretForkliftOptions) {
   });
 };
 
-export const loadSync = function(options: SecretForkliftOptions) {
+export const loadSync = (options: SecretForkliftOptions) => {
   options = loadDefaults(options);
   const parameters = awsParamStore.getParametersByPathSync(options.path);
   handleParamters(options, parameters);
