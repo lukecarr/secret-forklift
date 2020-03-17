@@ -31,17 +31,24 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "build:check": "tsc --noEmit",
-    "prepublish": "npm run build"
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "build": "npm run build:types && npm run build:js"
   },
   "dependencies": {
+    "@types/node": "^13.9.1",
     "aws-param-store": "^3.2.0"
   },
   "devDependencies": {
-    "@types/node": "^13.9.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "^7.8.3",
     "aws-sdk": "^2.640.0",
-    "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
   }
 }

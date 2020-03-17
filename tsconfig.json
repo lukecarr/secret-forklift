@@ -1,15 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ESNext",
     "module": "CommonJS",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "lib": [ "ES6", "ES2015" ],
-    "types": [ "node" ],
     "declaration": true,
     "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "types": [ "node" ]
   },
   "include": [ "src" ],
   "exclude": [ "node_modules", "**/tests/*"]
