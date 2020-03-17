@@ -60,4 +60,4 @@ The `loadSync()` method can also be supplied with options to configure Secret Fo
 
 ### Asynchronous
 
-An asynchronous loading method (`load()`) is also supplied which returns a `Promise<void>` when the parameters have been successfully loaded.
+An asynchronous loading method (`load()`) is also provided which returns a `Promise<void>` when the parameters have been successfully loaded. It can accept the same options as the `loadSync()` method which are listed above.
