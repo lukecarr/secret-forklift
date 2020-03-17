@@ -1,16 +1,23 @@
 declare module 'secret-forklift';
 
-interface NameFormatter {
-  (name: string): string;
-}
+type NameFormatter = (name: string) => string;
 
-interface ParameterLoader {
-  (name: string, value: any): void;
-}
+type ParameterLoader = (parameter: Parameter) => void;
+
+type ParameterType = 'String' | 'StringList' | 'SecureString';
 
 interface SecretForkliftOptions {
   path: string;
   override: true;
   formatter: NameFormatter;
   loader: ParameterLoader;
+}
+
+interface Parameter {
+  Name: string;
+  Type: ParameterType;
+  Value: string;
+  Version: number;
+  LastModifiedDate: Date;
+  ARN: string;
 }
