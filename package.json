@@ -9,9 +9,9 @@
     "secret",
     "env"
   ],
-  "homepage": "https://bitbucket.org/omnio-interactive/secret-forklift",
+  "homepage": "https://github.com/omnio-interactive/secret-forklift",
   "bugs": {
-    "url": "https://bitbucket.org/omnio-interactive/secret-forklift/jira"
+    "url": "https://github.com/omnio-interactive/secret-forklift/issues"
   },
   "license": "MIT",
   "contributors": [
