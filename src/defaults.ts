@@ -1,14 +1,15 @@
-const defaults : SecretForkliftOptions = {
+const defaults: SecretForkliftOptions = {
   path: process.env.AWS_PARAM_STORE_PATH || '',
   override: true,
-  formatter(name){
+  formatter(name) {
     return name.replace(/-/g, '_').toUpperCase();
   },
   loader(name, value) {
-    if (process.env.hasOwnProperty(name) && this.override || !process.env.hasOwnProperty(name)) {
+    if ((Object.prototype.hasOwnProperty.call(process.env, name) && this.override)
+      || !Object.prototype.hasOwnProperty.call(process.env, name)) {
       process.env[name] = value;
     }
-  }
+  },
 };
 
 export default defaults;
