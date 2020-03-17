@@ -1,6 +1,6 @@
 {
-  "name": "node-secret-forklift",
-  "version": "0.1.0",
+  "name": "secret-forklift",
+  "version": "0.1.0-rc.1",
   "description": "AWS Parameter Store loader for Node.js. Load secrets, tokens, and application configuration variables from AWS Systems Manager's Parameter Store into your Node.js app!",
   "keywords": [
     "aws",
@@ -21,7 +21,7 @@
     }
   ],
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "src/types.d.ts",
   "files": [
     "dist/"
   ],
@@ -31,19 +31,16 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "(rm -r ./dist || true)",
-    "lint": "eslint src/**/*.ts test/**/*.ts",
-    "build": "npm run clean && npm run lint && tsc"
+    "build": "tsc",
+    "build:check": "tsc --noEmit"
   },
   "dependencies": {
     "aws-param-store": "^3.2.0"
   },
   "devDependencies": {
     "@types/node": "^13.9.1",
-    "@typescript-eslint/eslint-plugin": "^2.24.0",
-    "@typescript-eslint/parser": "^2.24.0",
     "aws-sdk": "^2.640.0",
-    "eslint": "^6.8.0",
+    "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
   }
 }
