@@ -5,7 +5,7 @@ const awsParamStore = require('aws-param-store');
 const loadDefaults = (options: SecretForkliftOptions): SecretForkliftOptions => {
   const newOptions: any = { ...options };
   Object.entries(defaults).forEach(([key, value]) => {
-    if (!Object.prototype.hasOwnProperty.call(options, key)) {
+    if (!Object.prototype.hasOwnProperty.call(newOptions, key)) {
       newOptions[key] = value;
     }
   });
