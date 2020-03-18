@@ -1,4 +1,4 @@
-const defaults: SecretForkliftOptions = {
+export const defaults: SecretForkliftOptions = {
   path: process.env.AWS_PARAM_STORE_PATH || '',
   override: true,
   formatter(name) {
@@ -12,4 +12,12 @@ const defaults: SecretForkliftOptions = {
   },
 };
 
-export default defaults;
+export const mergeDefaults = (options?: SecretForkliftOptions): SecretForkliftOptions => {
+  const newOptions: any = { ...options };
+  Object.entries(defaults).forEach(([key, value]) => {
+    if (!Object.prototype.hasOwnProperty.call(newOptions, key)) {
+      newOptions[key] = value;
+    }
+  });
+  return newOptions;
+};
