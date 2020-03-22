@@ -1,4 +1,4 @@
-import { mergeDefaults } from './defaults';
+import { mergeDefaults } from './options';
 
 const awsParamStore = require('aws-param-store');
 
