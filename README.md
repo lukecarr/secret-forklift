@@ -19,49 +19,6 @@ AWS Parameter Store loader for Node.js. Load secrets, tokens, and application co
 npm i secret-forklift
 ```
 
-## Requirements
+## Getting Started
 
-Before using Secret Forklift, ensure that you have the AWS Node.js SDK installed. You can do this with `npm i aws-sdk`. You will also need to configure the SDK for your usage scenario (AWS credentials and AWS region).
-
-## Usage
-
-Before any of your application logic, import Secret Forklift and call `loadSync()`:  
-
-```js
-require('secret-forklift').loadSync();
-...
-```
-
-The `loadSync()` method can also be supplied with options to configure Secret Forklift. The default options are:  
-
-```js
-{
-  // This is the path in AWS Systems Manager's Parameter Store where parameters
-  // will be loaded from.
-  path: process.env.AWS_PARAM_STORE_PATH || '',
-  
-  // When set to true, this instructs the loader method to override any parameters
-  // that are already set (from .env files, etc.).
-  override: true,
-  
-  // This function takes in a string (the name of the parameter from AWS) and
-  // formats it to your preference. By default, hyphens are converted to underscores
-  // and then the whole name is converted to uppercase.
-  formatter: function(name) {
-    return name.replace(/-/g, '_').toUpperCase();
-  },
-  
-  // This function loads the parameter retrieved from AWS. The default implementation
-  // loads parameters into the process.env object which is globally accessible in Node.
-  loader: function(parameter) {
-    if ((Object.prototype.hasOwnProperty.call(process.env, parameter.Name) && this.override)
-      || !Object.prototype.hasOwnProperty.call(process.env, parameter.Name)) {
-      process.env[parameter.Name] = parameter.Value;
-    }
-  }
-}
-```
-
-### Asynchronous
-
-An asynchronous loading method (`load()`) is also provided which returns a `Promise<void>` when the parameters have been successfully loaded. It can accept the same options as the `loadSync()` method which are listed above.
+Head over to the **[official docs](https://docs.oss.omniointeractive.com/docs/secret-forklift/introduction)** to get started using Secret Forklift!
