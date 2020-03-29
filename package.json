@@ -1,6 +1,6 @@
 {
   "name": "secret-forklift",
-  "version": "0.2.3-rc.3",
+  "version": "0.2.3-rc.5",
   "description": "AWS Parameter Store loader for Node.js. Load secrets, tokens, and application configuration variables from AWS Systems Manager's Parameter Store into your Node.js app!",
   "keywords": [
     "aws",
@@ -21,10 +21,8 @@
     }
   ],
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
   "files": [
-    "dist/",
-    "types/"
+    "dist/"
   ],
   "repository": {
     "type": "git",
@@ -36,8 +34,9 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "clean": "rimraf dist",
+    "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
-    "build": "npm run clean && npm run build:js",
+    "build": "npm run clean && npm run build:types && npm run build:js",
     "prepublishOnly": "npm run lint && npm run build"
   },
   "dependencies": {

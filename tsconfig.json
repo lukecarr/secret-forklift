@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "CommonJS",
+    "declaration": true,
     "outDir": "./dist",
     "strict": true,
     "allowSyntheticDefaultImports": true,
@@ -9,5 +10,5 @@
     "types": [ "node" ]
   },
   "include": [ "src" ],
-  "exclude": [ "node_modules", "**/tests/*"]
+  "exclude": [ "node_modules", "**/tests/*" ]
 }

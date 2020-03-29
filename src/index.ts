@@ -1,6 +1,4 @@
-import { mergeDefaults } from './options';
-
-import { SecretForkliftOptions, Parameter } from "./../types/index";
+import { mergeDefaults, SecretForkliftOptions, Parameter } from './options';
 
 const awsParamStore = require('aws-param-store');
 
@@ -13,6 +11,12 @@ const handleParamters = (options: SecretForkliftOptions, parameters: Parameter[]
   });
 };
 
+/**
+ * Asynchronously loads parameters from AWS Parameter Store.
+ * 
+ * @param options The configuration options for the method.
+ * @returns An empty promise which resolves when the parameters have loaded.
+ */
 export const load = (options?: SecretForkliftOptions): Promise<void> => {
   return new Promise((resolve, reject) => {
     const optionsWithDefaults = mergeDefaults(options);
@@ -23,6 +27,11 @@ export const load = (options?: SecretForkliftOptions): Promise<void> => {
   });
 };
 
+/**
+ * Synchronously loads parameters from AWS Parameter Store.
+ * 
+ * @param options The configuration options for the method.
+ */
 export const loadSync = (options?: SecretForkliftOptions): void => {
   const optionsWithDefaults = mergeDefaults(options);
   const parameters = awsParamStore.getParametersByPathSync(optionsWithDefaults.path);
