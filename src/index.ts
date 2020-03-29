@@ -1,5 +1,7 @@
 import { mergeDefaults } from './options';
 
+import { SecretForkliftOptions, Parameter } from "./../types/index";
+
 const awsParamStore = require('aws-param-store');
 
 const handleParamters = (options: SecretForkliftOptions, parameters: Parameter[]): void => {

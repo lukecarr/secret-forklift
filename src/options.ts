@@ -1,3 +1,5 @@
+import { SecretForkliftOptions } from "./../types/index";
+
 export const defaults: SecretForkliftOptions = {
   path: process.env.AWS_PARAM_STORE_PATH || '',
   override: true,
