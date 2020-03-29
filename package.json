@@ -31,13 +31,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "lint": "eslint \"src/**\"",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch",
     "clean": "rimraf dist",
+    "prettier:check": "prettier --check \"src/**/*.ts\"",
+    "prettier:write": "prettier --write \"src/**/*.ts\"",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
-    "build": "npm run clean && npm run build:types && npm run build:js",
-    "prepare": "npm run lint && npm run build"
+    "build": "npm-run-all lint clean build:*",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "aws-param-store": "^3.2.0"
@@ -61,6 +61,7 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.2",
     "rimraf": "^3.0.2",
     "typescript": "^3.8.3"
